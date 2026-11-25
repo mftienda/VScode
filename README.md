@@ -22,7 +22,7 @@
 
 Las **extensiones de Visual Studio Code** son complementos que añaden funcionalidades al editor: resaltado y validación de archivos, herramientas de administración remota, integración con Git y GitHub, formateo y soporte para tecnologías específicas.
 
-Este repositorio recoge **17 extensiones instaladas**: 15 seleccionadas para mi trabajo habitual y 2 extensiones de Python que se mantienen porque **Ansible las necesita como dependencias**. No incluye las configuraciones personales de cada extensión.
+Este repositorio recoge **17 extensiones en la lista de instalación**: 15 seleccionadas para mi trabajo habitual y 2 extensiones de Python que se mantienen porque **Ansible las necesita como dependencias**. No incluye las configuraciones personales de cada extensión.
 
 ## 🗂️ Estructura
 
@@ -73,6 +73,15 @@ extensiones/
 | [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) | Facilita la edición de configuraciones SSH. |
 | [Remote Explorer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer) | Ayuda a explorar y gestionar destinos remotos. |
 | [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.powershell) | Ofrece soporte para escribir y depurar scripts PowerShell. |
+
+### 🤖 Extensiones de IA
+
+| Extensión | Compañía | ¿Para qué sirve? |
+|---|---|---|
+| [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) | GitHub | Sugiere código mientras escribes y ofrece ayuda desde el chat de VS Code. |
+| [Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) | OpenAI | Analiza archivos del proyecto, propone cambios y puede ejecutar comandos y pruebas. |
+| [Google Antigravity](https://marketplace.visualstudio.com/items?itemName=google.google-antigravity) | Google | Permite trabajar con un agente basado en Gemini para planificar tareas y realizar cambios en el proyecto. |
+| [Claude Code](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) | Anthropic | Permite consultar a Claude sobre el proyecto, revisar sus propuestas de cambio y ejecutar comandos desde VS Code. |
 
 ### 🔗 Dependencias de Ansible
 
@@ -133,6 +142,20 @@ code --list-extensions
 
 > [!TIP]
 > La lista incluye los identificadores de las extensiones, **no sus versiones exactas**. Al restaurarla, normalmente se descargan las versiones disponibles en ese momento. Algunas funciones también requieren programas externos, como `shellcheck`, `ansible` o `kubectl`.
+
+## ☁️ Sincronización de VS Code
+
+La sincronización de VS Code permite recuperar tus ajustes, extensiones, atajos de teclado y la distribución de los paneles en otro ordenador.
+
+1. En el ordenador actual, abre el menú de **Cuentas** (el icono de perfil, abajo a la izquierda) y selecciona **Configuración de copia de seguridad y sincronización…**.
+2. Si VS Code te pide una cuenta, elige **GitHub** e inicia sesión. Marca **Configuración**, **Extensiones** y **Estado de la interfaz** para recuperar también la ubicación de pestañas como Codex y Antigravity. Si utilizas perfiles, marca **Perfiles**.
+3. En el otro ordenador, instala VS Code y activa la sincronización con la **misma cuenta**. VS Code recuperará los ajustes seleccionados e instalará las extensiones.
+
+La copia se guarda en el servicio de sincronización de VS Code. La cuenta de GitHub sirve para identificarte y no se crea ningún repositorio.
+
+Al abrir Codex, Antigravity o Claude Code en el nuevo equipo, puede que tengas que iniciar sesión de nuevo. Para llevarte también tus proyectos, copia sus carpetas o clona sus repositorios.
+
+[Guía oficial de sincronización de VS Code](https://code.visualstudio.com/docs/configure/settings-sync)
 
 ## 📤 Exportar las extensiones de tu VS Code
 
