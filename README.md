@@ -90,19 +90,39 @@ extensiones/
 
 - Tener **Visual Studio Code** instalado.
 - Disponer del comando `code` en la terminal y de conexión a Internet.
-- Ejecutar los siguientes comandos desde la **raíz del repositorio**.
 
-**1. Clonar el repositorio** (sustituye `TU_USUARIO` por tu usuario de GitHub):
+**1. Descargar la lista de extensiones**
 
-```bash
-git clone https://github.com/TU_USUARIO/extensiones.git
-cd extensiones
+Abre [extensiones-vscode.txt en GitHub](https://github.com/mftienda/VScode/blob/main/documentos/extensiones-vscode.txt) y haz clic en el icono de descarga (↓), arriba a la derecha del archivo. Al pasar el ratón por encima verás **Download raw file**.
+
+Si prefieres usar la terminal, ejecuta el comando correspondiente desde la carpeta donde quieras guardar el archivo.
+
+**Windows (PowerShell)**
+
+```powershell
+Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/mftienda/VScode/main/documentos/extensiones-vscode.txt' -OutFile 'extensiones-vscode.txt'
 ```
 
-**2. Instalar las extensiones incluidas en la lista:**
+**Ubuntu y otras distribuciones Linux (Bash con `curl`)**
 
 ```bash
-xargs -r -n 1 code --install-extension < documentos/extensiones-vscode.txt
+curl -fL https://raw.githubusercontent.com/mftienda/VScode/main/documentos/extensiones-vscode.txt -o extensiones-vscode.txt
+```
+
+**2. Instalar las extensiones incluidas en la lista**
+
+Abre una terminal en la carpeta donde guardaste `extensiones-vscode.txt` (normalmente **Descargas** si usaste el navegador) y ejecuta el comando correspondiente.
+
+**Windows (PowerShell)**
+
+```powershell
+Get-Content .\extensiones-vscode.txt | ForEach-Object { code --install-extension $_ }
+```
+
+**Ubuntu y otras distribuciones Linux (Bash)**
+
+```bash
+xargs -r -n 1 code --install-extension < extensiones-vscode.txt
 ```
 
 **3. Comprobar las extensiones instaladas:**
