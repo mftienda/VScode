@@ -1,5 +1,3 @@
-<div align="center">
-
 ![Cabecera de Visual Studio Code](img/banner-vscode.png)
 
 # 🧩 Mis extensiones de Visual Studio Code
@@ -15,8 +13,6 @@
 ![YAML](https://img.shields.io/badge/YAML-Configuraci%C3%B3n-CB171E?logo=yaml&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-Orquestaci%C3%B3n-326CE5?logo=kubernetes&logoColor=white)
 ![Ansible](https://img.shields.io/badge/Ansible-Automatizaci%C3%B3n-EE0000?logo=ansible&logoColor=white)
-
-</div>
 
 ## 📖 ¿Qué contiene este repositorio?
 
