@@ -93,34 +93,31 @@ extensiones/
 > [!NOTE]
 > Aunque actualmente no utilizo VS Code para programar en Python, mantengo estas dos extensiones porque VS Code indica que **Ansible depende de ellas**.
 
-## 🚀 Instalar las extensiones en otro equipo
+## 📦 Exportar e importar extensiones de VS Code
 
-### Requisitos
+Para exportar la lista o instalar las extensiones, necesitas que el comando `code` esté disponible en tu terminal.
 
-- Tener **Visual Studio Code** instalado.
-- Disponer del comando `code` en la terminal y de conexión a Internet.
+### 1. Exportar extensiones instaladas
 
-**1. Descargar la lista de extensiones**
-
-Abre [extensiones-vscode.txt en GitHub](https://github.com/mftienda/VScode/blob/main/documentos/extensiones-vscode.txt) y haz clic en el icono de descarga (↓), arriba a la derecha del archivo. Al pasar el ratón por encima verás **Download raw file**.
-
-Si prefieres usar la terminal, ejecuta el comando correspondiente desde la carpeta donde quieras guardar el archivo.
+Abre una terminal en la carpeta donde quieras guardar tu lista.
 
 **Windows (PowerShell)**
 
 ```powershell
-Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/mftienda/VScode/main/documentos/extensiones-vscode.txt' -OutFile 'extensiones-vscode.txt'
+code --list-extensions | Set-Content -Encoding ASCII extensiones-vscode.txt
 ```
 
-**Ubuntu y otras distribuciones Linux (Bash con `curl`)**
+**Ubuntu y otras distribuciones Linux (Bash)**
 
 ```bash
-curl -fL https://raw.githubusercontent.com/mftienda/VScode/main/documentos/extensiones-vscode.txt -o extensiones-vscode.txt
+code --list-extensions > extensiones-vscode.txt
 ```
 
-**2. Instalar las extensiones incluidas en la lista**
+Copia el archivo `extensiones-vscode.txt` al otro ordenador.
 
-Abre una terminal en la carpeta donde guardaste `extensiones-vscode.txt` (normalmente **Descargas** si usaste el navegador) y ejecuta el comando correspondiente.
+### 2. Importar extensiones
+
+Abre una terminal en la carpeta donde guardaste `extensiones-vscode.txt`. Puedes usar tu propia lista exportada o la del profesor.
 
 **Windows (PowerShell)**
 
@@ -134,14 +131,25 @@ Get-Content .\extensiones-vscode.txt | ForEach-Object { code --install-extension
 xargs -r -n 1 code --install-extension < extensiones-vscode.txt
 ```
 
-**3. Comprobar las extensiones instaladas:**
+Para comprobar las extensiones instaladas, ejecuta `code --list-extensions`.
 
-```bash
-code --list-extensions
+### 3. Descargar las extensiones del profesor
+
+Abre [extensiones-vscode.txt en GitHub](https://github.com/mftienda/VScode/blob/main/documentos/extensiones-vscode.txt) y pulsa el icono de descarga (↓) arriba a la derecha del archivo. Después, sigue el paso 2 para instalar las extensiones de la lista.
+
+También puedes descargar la lista desde la terminal, en la carpeta donde quieras guardarla.
+
+**Windows (PowerShell)**
+
+```powershell
+Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/mftienda/VScode/main/documentos/extensiones-vscode.txt' -OutFile 'extensiones-vscode.txt'
 ```
 
-> [!TIP]
-> La lista incluye los identificadores de las extensiones, **no sus versiones exactas**. Al restaurarla, normalmente se descargan las versiones disponibles en ese momento. Algunas funciones también requieren programas externos, como `shellcheck`, `ansible` o `kubectl`.
+**Ubuntu y otras distribuciones Linux (Bash con `curl`)**
+
+```bash
+curl -fL https://raw.githubusercontent.com/mftienda/VScode/main/documentos/extensiones-vscode.txt -o extensiones-vscode.txt
+```
 
 ## ☁️ Sincronización de VS Code
 
@@ -156,26 +164,6 @@ La copia se guarda en el servicio de sincronización de VS Code. La cuenta de Gi
 Al abrir Codex, Antigravity o Claude Code en el nuevo equipo, puede que tengas que iniciar sesión de nuevo. Para llevarte también tus proyectos, copia sus carpetas o clona sus repositorios.
 
 [Guía oficial de sincronización de VS Code](https://code.visualstudio.com/docs/configure/settings-sync)
-
-## 📤 Exportar las extensiones de tu VS Code
-
-Para actualizar el listado con las extensiones instaladas en tu equipo, ejecuta desde la raíz del repositorio:
-
-```bash
-code --list-extensions > documentos/extensiones-vscode.txt
-```
-
-Para contar las extensiones:
-
-```bash
-code --list-extensions | wc -l
-```
-
-Si quieres guardar también las versiones instaladas, puedes generar **otro archivo**:
-
-```bash
-code --list-extensions --show-versions > documentos/extensiones-con-versiones.txt
-```
 
 ## 🖼️ Resumen visual
 
